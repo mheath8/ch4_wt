@@ -19,3 +19,10 @@ end
 def new
   # default: render 'new' template
 end
+# in movies_controller.rb
+def create
+  #@movie = Movie.create!(params[:movie])
+  @movie = Movie.create!(movie_params) #new array
+  flash[:notice] = "#{@movie.title} was successfully created."
+  redirect_to movies_path
+end
